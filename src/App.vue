@@ -1,15 +1,39 @@
 <template>
   <div id="app">
+    <o-header></o-header>
     <router-view/>
   </div>
 </template>
 
 <script>
+  import oHeader from '@/components/head';
+
   export default {
+    components: {oHeader},
     name: 'app'
   }
 </script>
 
+<style lang="scss">
+  body.azurlane {
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff no-repeat url(./assets/azurlane.jpg) center center / cover;
+      opacity: .34;
+      filter: blur(3px);
+      pointer-events: none;
+      z-index: -3;
+    }
+    #app {
+      position: relative;
+      z-index: 9;
+    }
+  }
+</style>
 <style>
   html {
     font-size: 100px;
